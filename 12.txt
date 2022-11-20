@@ -1,0 +1,19 @@
+clc ;
+close ;
+b = imread ( ‘F:\2.jpg’ ) ;
+a = rgb2gray ( b ) ;
+global EDGE_SOBEL ;
+Gradient = EdgeFilter (a , EDGE_SOBEL ) ;
+Threshold1 = CalculateOtsuThreshold ( Gradient ) ;
+EdgeImage = ~ SegmentByThreshold ( Gradient , Threshold1 );
+DistanceImage = DistanceTransform ( EdgeImage ) ;
+Threshold2 = CalculateOtsuThreshold ( DistanceImage )
+ThresholdImage = SegmentByThreshold ( DistanceImage ,Threshold2 ) ;
+MarkerImage = SearchBlobs ( ThresholdImage );
+SegmentedImage = Watershed ( Gradient , MarkerImage ) ;
+figure
+imshow (b);
+title (‘original image’);
+figure
+ColorMapLength = length ( unique ( SegmentedImage ) ) ;
+imshow( SegmentedImage,‘Result of WatershedTransform’,jetcolormap(ColorMapLength)) ;
