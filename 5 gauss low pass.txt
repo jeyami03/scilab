@@ -1,0 +1,24 @@
+clc;
+a = imread('lena.png');
+yiq = rgb2ntsc(a) ;
+b = yiq(: ,: ,1) ;
+h = [ 1 , 1 , 1; 1 ,8 , 1; 1 , 1 , 1]/9;
+c1 = convol2d(b , h);
+h2 = 1/25.*ones(5,5);
+c1 = imfilter(b,h2);
+subplot(2,2,1);
+imshow(c1);
+[m , n ]= size(b);
+for i =1: m
+for j =1: n
+D(i , j) = c1(i , j );
+end
+end
+subplot(2,2,2);
+imshow(D);
+yiq(: ,: ,1)= D;
+a1 = ntsc2rgb(yiq);
+subplot(2,2,3);
+imshow(a);
+subplot(2,2,4);
+imshow(a1);

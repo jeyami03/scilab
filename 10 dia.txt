@@ -1,0 +1,9 @@
+I = imread('as.png');
+se = imcreatese('rect', 3,3);
+I2 = imdilate(I, se);
+subplot(211);
+title("Original Image");
+imshow(I);
+subplot(212);
+title("Dilation Image");
+imshow(I2);

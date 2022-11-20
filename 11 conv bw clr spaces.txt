@@ -1,0 +1,16 @@
+clc;
+RGB = imread("lena.png");
+subplot(3,2,1 );
+imshow(RGB);
+HSV = rgb2hsv(RGB);
+subplot( 3,2,2);
+imshow(HSV);
+RGBHSV = hsv2rgb(HSV);
+subplot( 3,2,3);
+imshow(RGBHSV);
+ntsc = rgb2ntsc(RGB);
+subplot( 3,2,4);
+imshow(ntsc);
+RGBNTSC = ntsc2rgb(ntsc);
+subplot( 3,2,5);
+imshow(RGBNTSC);

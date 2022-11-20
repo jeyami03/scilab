@@ -1,0 +1,46 @@
+clc;
+function demo_arithmetic()
+ im1 = imread("lena.png");
+ im2 = imread("as.jpg");
+
+ ima1 = imadd(im1,im2);
+ ima2 = imadd(im1,100);
+ subplot(221); 
+ imshow(im1); 
+ title("First Image");
+ subplot(222); 
+ imshow(im2); 
+ title("Second Image");
+ subplot(223); 
+ imshow(ima1); 
+ title("1st Image + 2nd Image");
+ subplot(224); 
+ imshow(ima2); 
+ title("1st Image + constant 100");
+
+ ims1 = imsubtract(im1, im2);
+ ims2 = imsubtract(im1, 100);
+ scf();
+ subplot(221); imshow(im1); title("First Image");
+ subplot(222); imshow(im2); title("Second Image");
+ subplot(223); imshow(ims1); title("1st Image - 2nd Image");
+ subplot(224); imshow(ims2); title("1st Image - constant 100");
+ imm1 = immultiply(im1, im2);
+ imm2 = immultiply(im1, 2);
+ scf();
+ subplot(221); imshow(im1); title("First Image");
+ subplot(222); imshow(im2); title("Second Image");
+ subplot(223); imshow(imm1); title("1st Image x 2nd Image");
+ subplot(224); imshow(imm2); title("1st Image x constant 2");
+
+ imd1 = imdivide(im1, im2);
+ imd2 = imdivide(im1, 2);
+ scf();
+ subplot(221); imshow(im1); title("First Image");
+ subplot(222); imshow(im2); title("Second Image");
+ subplot(223); imshow(imd1); title("1st Image / 2nd Image");
+ subplot(224); imshow(imd2); title("1st Image / constant 2");
+
+endfunction
+demo_arithmetic();
+clear demo_arithmetic;

@@ -1,0 +1,13 @@
+ //atomsInstall("IPCV");
+ clc;
+ close;
+ disp("convert Gray Scale image to Binary Image");
+ S = imread("lena.png");
+ subplot(2,2,1);
+ imshow(S);
+ Sgray = rgb2gray(S);
+ subplot(2,2,2);
+ imshow(Sgray);
+ Sbin = im2bw(Sgray,0.5);
+ subplot(2,2,3);
+ imshow(Sbin);

@@ -1,0 +1,10 @@
+clc;
+I = imread('a.png');
+se = imcreatese('rect', 5,5);
+I1 = imerode(I, se);
+subplot(211);
+title("Original Image");
+imshow(I);
+subplot(212);
+title("Erode Image");
+imshow(I1);

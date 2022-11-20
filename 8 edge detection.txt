@@ -1,0 +1,11 @@
+close;
+clc;
+a = imread("as.jpg");
+[c,thresh] = edge(rgb2gray(a),'log',0.2,'both',2);
+subplot(221);
+imshow(a);
+title('Original Image');
+//figure
+subplot(222);
+title('edge');
+imshow(c);
